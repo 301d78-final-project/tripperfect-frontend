@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# TripPerfect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Authors: Marquesa Asmussen, Steve Ngo, Eddie Ponce, Katy Roffe, Cameron Walden
 
-## Available Scripts
+## PRODUCT NAME: TripPerfect
 
-In the project directory, you can run:
+## Problem Domain: Everyone travels, but frequently are left wondering what to do in their new city. "Where is the best Japanese food?" "Are there cool local sights?" "Where can I get a taste of the local flavor?"... These are all questions we've faced while traveling. We want to create an app that will help these wayward travelers find their way in their travels.
 
-### `npm start`
+## MVP:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Home page
+- Login page
+- Search page
+  - returns local events
+- Favorites page
+  - user can store favorite events
+- About Us
+  - user can learn about company/dev team
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Available APIs :
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+PredictHQ - https://www.predicthq.com/
+Eventbrite (Links to an external site.) | Find events | OAuth | Yes | Unknown
+Picatic (Links to an external site.) | Sell tickets anywhere | apiKey | Yes | Unknown
+SeatGeek (Links to an external site.) | Search events, venues and performers | apiKey | Yes | Unknown
+Ticketmaster (Links to an external site.) | Search events, attractions, or venues | apiKey | Yes | Unknown
