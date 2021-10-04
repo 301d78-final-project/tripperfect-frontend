@@ -31,9 +31,9 @@ Ticketmaster (Links to an external site.) | Search events, attractions, or venue
 
 ![screen shot of Wireframe](./docs/images/WireFrame.JPG)
 
-![Nav bar](./docs/images/Navigation.JPG)
+![Nav-bar](./docs/images/Navigation.jpg)
 
-![landing](./docs/images/Landing.JPG)
+![landing](./docs/images/Landing.jpg)
 
 ![search](./docs/images/SearchResults.jpg)
 
