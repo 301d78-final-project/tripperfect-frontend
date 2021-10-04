@@ -31,6 +31,18 @@ Ticketmaster (Links to an external site.) | Search events, attractions, or venue
 
 ![screen shot of Wireframe](./docs/images/WireFrame.JPG)
 
+![Nav bar](./docs/images/Navigation.JPG)
+
+![landing](./docs/images/Landing.JPG)
+
+![search](./docs/images/SearchResults.jpg)
+
+![fav](./docs/images/FavoritesPage.jpg)
+
+![about](./docs/images/AboutUs.jpg)
+
+![login](./docs/images/Login.jpg)
+
 ## User Stories
 
 [link to Basecamp User Stories Doc](https://3.basecamp.com/5207785/buckets/24316747/documents/4211985242)
