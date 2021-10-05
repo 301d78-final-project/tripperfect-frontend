@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Container from 'react-bootstrap/Container';
 
 class EventModal extends Component {
   constructor(props) {
