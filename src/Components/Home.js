@@ -23,11 +23,26 @@ class Home extends Component {
     try {
       const eventAPI = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
       const eventResponse = await axios.get(eventAPI);
-      console.log(eventResponse.data._embedded.events, 'THIS IS eventResponse.data')
+      // console.log(eventResponse.data._embedded.events, 'THIS IS eventResponse.data')
       this.setState({
         eventData: eventResponse.data._embedded.events,
       });
+      this.getMap();
     } catch (error) {
+      this.setState({
+        error: true,
+      });
+    }
+  }
+
+  getMap = async (event) => {
+    // event.preventDefault();
+    try {
+      const mapAPI = `http://localhost:3001/location?location=${this.state.searchQuery}`;
+      const mapResponse = await axios.get(mapAPI);
+      console.log(mapResponse.data, "THIS IS MAPRESPONSE.DATA");
+
+    }catch (error) {
       this.setState({
         error: true,
       });
