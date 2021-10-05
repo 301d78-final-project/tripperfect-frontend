@@ -1,0 +1,39 @@
+{
+  "authors": [
+    {
+      "name": "Marquesa Asmussen",
+      "bio": "Marquesa is a Seattle-based software developer. She comes from a diverse background with experience in sales, construction, the food and beverage industry and the performing arts. She is a passionate communicator who strives to make connections and build a sense of community, uplifting and encouraging her peers to grow themselves. Marquesa is driven to give her clients the best possible development experience and finished product.",
+      "img": "../images/MarquesaAsmussen.jpeg",
+      "linkedin": "https://www.linkedin.com/in/marquesaa/",
+      "github": "https://github.com/MarquesaAsmussen"
+    },
+    {
+      "name": "Steve Ngo",
+      "bio": "Software Engineer. The goals I have for myself include learning how to code more advanced programs while creating an appealing UX/UI. I enjoy collecting things like music boxes, cooking lavish dinners, and driving high performance vehicles. Fun Fact: I have never played Blackjack sober...until now.",
+      "img": "../images/SteveNgo.jpeg",
+      "linkedin": "https://www.linkedin.com/in/alsosteve/",
+      "github": "https://github.com/alsosteve"
+    },
+    {
+      "name": "Eddie Ponce",
+      "bio": "My name is Eddie Ponce, and I am a Marine Corps Veteran. I served Active Duty from 2016-2021 as a Ground Intelligence Specialist. Upon completion of Code Fellows, I’d like to land a job as a Front-End Web Developer at a tech company within Washington State. So far, I’m loving the content I’ve learned from the 201 course and wish to continue progressing through 301 and 401. My biggest goal is to make a positive impact in the Tech Industry and to continuously challenge my limits a new Developer.",
+      "img": "../images/EddiePonce.jpeg",
+      "linkedin": "https://www.linkedin.com/in/eddie-ponce/",
+      "github": "https://github.com/ponceedi000"
+    },
+    {
+      "name": "Katy Roffe",
+      "bio": "Software Development student, Aspiring Author, former Accounts Payable Specialist.",
+      "img": "../images/KatyRoffe.jpeg",
+      "linkedin": "https://www.linkedin.com/in/katy-roffe/",
+      "github": "https://github.com/KatyRoffe"
+    },
+    {
+      "name": "Cameron Walden",
+      "bio": "Software Developer, undercover rockstar",
+      "img": "../images/CameronWalden.jpeg",
+      "linkedin": "https://www.linkedin.com/in/cameronwalden/",
+      "github": "https://github.com/Cameron-Walden"
+    }
+  ]
+}
