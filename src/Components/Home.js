@@ -6,6 +6,13 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      event: {},
+    };
+  }
+
   render() {
     return (
       <Container className='text-center'>
