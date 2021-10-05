@@ -61,14 +61,11 @@ class Home extends Component {
          <Col>
           {this.state.eventData.map((attractions) => ( 
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant='top' src='https://via.placeholder.com/150' />
+            <Card.Img variant='top' src={attractions.images[0].url} />
               <Card.Body>
                 <Card.Title>{attractions.name}</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant='primary'>Go somewhere</Button>
+                <Card.Text><a href={attractions.url} target="_blank" rel="noopener noreferrer">ticket link</a></Card.Text>
+                <Button variant='primary'>Save button-not working yet</Button>
               </Card.Body>
               </Card>
               ))}
