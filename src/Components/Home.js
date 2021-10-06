@@ -18,16 +18,56 @@ class Home extends Component {
     };
   }
 
+  addEvents = async (titleOfTheEventThatIAmLookingFor) => {
+    // try {
+      let theEventThatICareAbout = this.state.eventData.find(att => att.name === titleOfTheEventThatIAmLookingFor);
+      console.log(theEventThatICareAbout);
+      const config = {
+        params: {
+          title: theEventThatICareAbout.name,
+          //change description to url(here&server)
+          description: theEventThatICareAbout.url,
+          location: theEventThatICareAbout,
+          formatted_address: theEventThatICareAbout,
+          date: theEventThatICareAbout,
+          email: theEventThatICareAbout,
+        }
+      }
+    // } 
+
+    await axios.post('http://localhost:3001/favorites?');
+    // this.getEvents();
+
+  }
+
   getEvents = async (event) => {
     event.preventDefault();
     try {
       const eventAPI = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
       const eventResponse = await axios.get(eventAPI);
-      console.log(eventResponse.data._embedded.events, 'THIS IS eventResponse.data')
+      // console.log(eventResponse.data._embedded.events, 'THIS IS eventResponse.data')
       this.setState({
         eventData: eventResponse.data._embedded.events,
       });
+      // working
+      this.getMap();
+      
     } catch (error) {
+      this.setState({
+        error: true,
+      });
+    }
+  }
+
+  // working
+  getMap = async (event) => {
+    // event.preventDefault();
+    try {
+      const mapAPI = `http://localhost:3001/location?location=${this.state.searchQuery}`;
+      const mapResponse = await axios.get(mapAPI);
+      console.log(mapResponse.data, "THIS IS MAPRESPONSE.DATA");
+
+    }catch (error) {
       this.setState({
         error: true,
       });
@@ -61,14 +101,11 @@ class Home extends Component {
          <Col>
           {this.state.eventData.map((attractions) => ( 
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant='top' src='https://via.placeholder.com/150' />
+            <Card.Img variant='top' src={attractions.images[0].url} />
               <Card.Body>
                 <Card.Title>{attractions.name}</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant='primary'>Go somewhere</Button>
+                <Card.Text><a href={attractions.url} target="_blank" rel="noopener noreferrer">ticket link</a></Card.Text>
+                <Button variant='primary' onClick={() => this.addEvents(attractions.name)}>Save Event</Button>
               </Card.Body>
               </Card>
               ))}
