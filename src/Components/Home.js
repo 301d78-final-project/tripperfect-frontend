@@ -51,16 +51,21 @@ class Home extends Component {
                 Please Enter City Name
               </Form.Label>
               <Form.Control onChange={(event) => this.props.setSearchQuery(event.target.value)} placeholder="Ex: Seattle" />
-            </Col>
+             </Col>
             <Col xs="auto" className="my-1">
               <Button type="submit" as="input" value="Submit" variant="primary" />{' '}
-            </Col>
+            </Col> 
           </Row>
         </Form>
-        <Row>
-          <Col>
+        <Row 
+        style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+          }}>
+          {/* <Col fluid> */}
             {this.props.eventData.map((attractions) => (
-              <Card style={{ width: '18rem' }}>
+              <Card id="eventcard" style={{ width: '18rem' }}>
                 <Card.Img variant='top' src={attractions.images[0].url} />
                 <Card.Body>
                   <Card.Title>{attractions.name}</Card.Title>
@@ -69,8 +74,15 @@ class Home extends Component {
                 </Card.Body>
               </Card>
             ))}
-          </Col>
-          <Col>
+          {/* </Col> */}
+          </Row>
+          <Row 
+          style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          }}>
+          {/* <Col> */}
             <Card style={{ width: '30rem' }}>
               <Card.Img variant='top' src='https://developer.ticketmaster.com/assets/img/products-and-docs/map.jpg' />
               <Card.Body>
@@ -78,7 +90,7 @@ class Home extends Component {
                 <Card.Text>Basic city address here:</Card.Text>
               </Card.Body>
             </Card>
-          </Col>
+          {/* </Col> */}
         </Row>
       </Container>
     );
