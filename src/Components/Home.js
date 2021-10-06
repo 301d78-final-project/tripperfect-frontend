@@ -20,7 +20,7 @@ class Home extends Component {
   addEvents = async (titleOfTheEventThatIAmLookingFor) => {
     // try {
     let theEventThatICareAbout = this.props.eventData.find(att => att.name === titleOfTheEventThatIAmLookingFor);
-    console.log(theEventThatICareAbout._embedded.attractions);
+    console.log(theEventThatICareAbout._embedded.attractions, 'FROM INSIDE ADD EVENTS');
     const config = {
       data: {
         title: theEventThatICareAbout.name,
@@ -38,28 +38,8 @@ class Home extends Component {
     // } 
 
     const response = await axios(config);
-    // this.getEvents();
-    console.log(response);
+    console.log(response.data, "THIS IS RESPONSE DOT DATA");
   }
-
-
-      // working
-
-
-  // working
-  // getMap = async (event) => {
-  //   // event.preventDefault();
-  //   try {
-  //     const mapAPI = `http://localhost:3001/location?location=${this.state.searchQuery}`;
-  //     const mapResponse = await axios.get(mapAPI);
-  //     console.log(mapResponse.data, "THIS IS MAPRESPONSE.DATA");
-
-  //   }catch (error) {
-  //     this.setState({
-  //       error: true,
-  //     });
-  //   }
-  // }
 
   render() {
     return (
@@ -77,13 +57,6 @@ class Home extends Component {
             </Col>
           </Row>
         </Form>
-
-        {/*<Form>
-      <input
-      onChange={(event) =>
-      this.setState({searchQuery: event.target.value})}></input>
-      <Button variant="dark" type="submit" onSubmit={this.getEvents}>SEARCH</Button>
-      </Form>*/}
         <Row>
           <Col>
             {this.props.eventData.map((attractions) => (
@@ -99,7 +72,7 @@ class Home extends Component {
           </Col>
           <Col>
             <Card style={{ width: '30rem' }}>
-              <Card.Img variant='top' src='https://via.placeholder.com/350' />
+              <Card.Img variant='top' src='https://developer.ticketmaster.com/assets/img/products-and-docs/map.jpg' />
               <Card.Body>
                 <Card.Title>Map</Card.Title>
                 <Card.Text>Basic city address here:</Card.Text>
