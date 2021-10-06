@@ -18,6 +18,28 @@ class Home extends Component {
     };
   }
 
+  addEvents = async (titleOfTheEventThatIAmLookingFor) => {
+    // try {
+      let theEventThatICareAbout = this.state.eventData.find(att => att.name === titleOfTheEventThatIAmLookingFor);
+      console.log(theEventThatICareAbout);
+      const config = {
+        params: {
+          title: theEventThatICareAbout.name,
+          //change description to url(here&server)
+          description: theEventThatICareAbout.url,
+          location: theEventThatICareAbout,
+          formatted_address: theEventThatICareAbout,
+          date: theEventThatICareAbout,
+          email: theEventThatICareAbout,
+        }
+      }
+    // } 
+
+    await axios.post('http://localhost:3001/favorites?');
+    // this.getEvents();
+
+  }
+
   getEvents = async (event) => {
     event.preventDefault();
     try {
@@ -27,7 +49,9 @@ class Home extends Component {
       this.setState({
         eventData: eventResponse.data._embedded.events,
       });
+      // working
       this.getMap();
+      
     } catch (error) {
       this.setState({
         error: true,
@@ -35,6 +59,7 @@ class Home extends Component {
     }
   }
 
+  // working
   getMap = async (event) => {
     // event.preventDefault();
     try {
@@ -80,7 +105,7 @@ class Home extends Component {
               <Card.Body>
                 <Card.Title>{attractions.name}</Card.Title>
                 <Card.Text><a href={attractions.url} target="_blank" rel="noopener noreferrer">ticket link</a></Card.Text>
-                <Button variant='primary'>Save button-not working yet</Button>
+                <Button variant='primary' onClick={() => this.addEvents(attractions.name)}>Save Event</Button>
               </Card.Body>
               </Card>
               ))}
