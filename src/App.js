@@ -28,14 +28,15 @@ class App extends Component {
   getEvents = async (event) => {
     event.preventDefault();
     try {
-      console.log(`made it here`)
+      // console.log(`made it here`)
       const eventAPI = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
       const eventResponse = await axios.get(eventAPI);
-      console.log(eventResponse.data._embedded.events, 'THIS IS eventResponse.data')
+      console.log(eventResponse.data, 'THIS IS eventResponse.data')
       this.setState({
         eventData: eventResponse.data._embedded.events,
       });
       this.getMap();
+      // console.log(eventResponse.data, "EVENT RESPONSE DATA FROM INSIDE GETEVENTS")
 
     } catch (error) {
       this.setState({
@@ -51,11 +52,11 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path='/'>
-              <Home setSearchQuery={this.setSearchQuery} eventData={this.state.eventData} getEvents={this.getEvents} />
+              <Home setSearchQuery={this.setSearchQuery} eventData={this.state.eventData} getEvents={this.getEvents}/>
             </Route>
 
             <Route path='/saved-events'>
-              <SavedEvents eventData={this.state.eventData} getEvents={this.getEvents} />
+              <SavedEvents eventData={this.state.eventData} getEvents={this.getEvents} onDelete={this.props.deleteEvents} />
             </Route>
 
             <Route path='/about-us'>
