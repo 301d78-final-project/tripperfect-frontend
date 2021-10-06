@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import Home from './Components/Home';
 import SavedEvents from './Components/SavedEvents';
 import AboutUs from './Components/AboutUs';
-// import Login from './Components/Login';
+import Login from './Components/Login';
 import Footer from './Components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -17,8 +17,21 @@ class App extends Component {
     super(props);
     this.state = {
       devInfo: devBios,
+      user: null,
       eventData: []
     };
+  }
+
+  loginHandler = (user) => {
+    this.setState({
+      user,
+    })
+  }
+
+  logoutHandler = () => {
+    this.setState({
+      user: null,
+    })
   }
 
   setSearchQuery = (searchQuery) => {
@@ -48,7 +61,7 @@ class App extends Component {
     return (
       <>
         <Router>
-          <Header />
+          <Header user={this.state.user} onLogout={this.logoutHandler} />
           <Switch>
             <Route exact path='/'>
               <Home setSearchQuery={this.setSearchQuery} eventData={this.state.eventData} getEvents={this.getEvents} />
@@ -62,7 +75,15 @@ class App extends Component {
               <AboutUs devInfo={this.state.devInfo} />
             </Route>
 
-            <Route path='/login'>{/* <Login /> */}</Route>
+            <Route path='/login'>
+            {
+             this.state.user ? (
+              <SavedEvents user={this.state.user}/>
+              ) : (
+                <Login onLogin={this.loginHandler}/>
+              ) 
+            }
+            </Route>
           </Switch>
           <Footer />
         </Router>
