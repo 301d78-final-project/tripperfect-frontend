@@ -1,38 +1,45 @@
 import { Component } from 'react';
 import Table from 'react-bootstrap/Table'
+import axios from 'axios'
 
 class SavedEvents extends Component {
+
+  getSavedEvents  =  async () => {
+    const savedEventAPI = `http://localhost:3001/favorites?email=email@example.com`;
+    const eventResponse = await axios.get(savedEventAPI);
+    console.log(eventResponse, 'THIS IS eventResponse.data')   
+    this.setState({
+      eventData: eventResponse.data._embedded.events,
+      
+    });
+  }
+
+
   render() {
     return (
+      <>
+      {this.props.eventData.map((attractions) => (
       <Table striped bordered hover>
   <thead>
     <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th>Picture</th>
+      <th>Name of Event</th>
+      <th>Link to TicketMaster</th>
+      <th>City</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody>   
     <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td colSpan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <td>{attractions.images[0].url}</td>
+      <td>{attractions.name}</td>
+      <td><a href={attractions.url} target="_blank" rel="noopener noreferrer">ticket link</a></td>
+      <td>{attractions._embedded.venues[0].city.name}</td>
     </tr>
   </tbody>
 </Table>
+))}
+</>
     )
   }
 }
+export default SavedEvents;
