@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import '../css/EventCards.css';
 import { withAuth0 } from '@auth0/auth0-react';
+import EventModal from './EventModal';
 
 class Home extends Component {
   constructor(props) {
@@ -15,6 +16,8 @@ class Home extends Component {
     this.state = {
       error: false,
       searchQuery: '',
+      displayModal: false,
+      selectedEvent: []
     };
   }
 
@@ -46,6 +49,20 @@ class Home extends Component {
     console.log(response.data, 'THIS IS RESPONSE DOT DATA');
   };
 
+  showModal = (title) => {
+    const selectedEvent = this.props.eventData.find(singleEvent => singleEvent.name === title);
+    this.setState({
+      displayModal: true,
+      selectedEvent: selectedEvent,
+    })
+  }
+
+  hideModal = () => {
+    this.setState({
+      displayModal: false
+    })
+  }
+
   render() {
     return (
       <Container className='text-center'>
@@ -72,6 +89,7 @@ class Home extends Component {
             </Col>
           </Row>
         </Form>
+
         <Row
           style={{
             display: 'flex',
@@ -91,9 +109,18 @@ class Home extends Component {
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    ticket link
+                    Ticket Link
                   </a>
                 </Card.Text>
+                <Card.Text>
+                  <p> <strong>Min Price:</strong> ${attractions.priceRanges[0].min} | <strong>Max Price:</strong> ${attractions.priceRanges[0].max}</p>
+                </Card.Text>
+                <Card.Text>
+                  <p><strong>Start Date:</strong> {attractions.dates.start.localDate} | <strong>Local Start Time:</strong> {attractions.dates.start.localTime}</p>
+                </Card.Text>
+                <Button onClick={() => this.showModal(attractions.name)}>More Info</Button>
+                <EventModal selectedEvent={this.state.selectedEvent} displayModal={this.state.displayModal} onHide={this.hideModal} />
+
                 {this.props.auth0.isAuthenticated ? (
                   <Button
                     id='eventbutton'

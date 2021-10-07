@@ -31,6 +31,8 @@ class App extends React.Component {
     try {
       console.log(`made it here`);
       const eventAPI = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
+      //const eventApi = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
+      
       const eventResponse = await axios.get(eventAPI);
       console.log(
         eventResponse.data._embedded.events,

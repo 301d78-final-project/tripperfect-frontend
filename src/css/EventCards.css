@@ -4,7 +4,7 @@
     padding-top: 10px;
     background-color: gray;
     opacity: 95%;
-    height: 350px;
+    overflow: auto;
   }
 
   #eventbutton {
