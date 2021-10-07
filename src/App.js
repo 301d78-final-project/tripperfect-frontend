@@ -1,18 +1,19 @@
-// import React from 'react';
-import { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { withAuth0 } from '@auth0/auth0-react';
+import LoginButton from './Components/LoginButton';
+// import Login from './Components/Login';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import SavedEvents from './Components/SavedEvents';
 import AboutUs from './Components/AboutUs';
-// import Login from './Components/Login';
 import Footer from './Components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import devBios from './teamBios.json';
 import axios from 'axios';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,26 +53,31 @@ class App extends Component {
         <Router>
           <Header />
           <Switch>
-            <Route exact path='/'>
-              <Home
-                setSearchQuery={this.setSearchQuery}
-                eventData={this.state.eventData}
-                getEvents={this.getEvents}
-              />
+            <Route path='/login'>
+              <LoginButton />
             </Route>
+            {this.props.auth0.isAuthenticated && (
+              <>
+                <Route exact path='/'>
+                  <Home
+                    setSearchQuery={this.setSearchQuery}
+                    eventData={this.state.eventData}
+                    getEvents={this.getEvents}
+                  />
+                </Route>
 
-            <Route path='/saved-events'>
-              <SavedEvents
-                eventData={this.state.eventData}
-                getEvents={this.getEvents}
-              />
-            </Route>
+                <Route path='/saved-events'>
+                  <SavedEvents
+                    eventData={this.state.eventData}
+                    getEvents={this.getEvents}
+                  />
+                </Route>
 
-            <Route path='/about-us'>
-              <AboutUs devInfo={this.state.devInfo} />
-            </Route>
-
-            <Route path='/login'>{/* <Login /> */}</Route>
+                <Route path='/about-us'>
+                  <AboutUs devInfo={this.state.devInfo} />
+                </Route>
+              </>
+            )}
           </Switch>
           <Footer />
         </Router>
@@ -80,4 +86,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuth0(App);
