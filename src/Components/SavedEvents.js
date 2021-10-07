@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import '../css/SavedEvents.css'
 import axios from 'axios';
 
 class SavedEvents extends Component {
@@ -36,12 +37,13 @@ class SavedEvents extends Component {
   render() {
     return (
       <>
-      <Table striped bordered hover>
+      <Table striped bordered hover id="eventsTable" >
       <thead>
     <tr>
       <th>Event Title</th>
       <th>Link to Ticket Master</th>
       <th>City</th>
+      {/* <th>Start Date</th> */}
       <th>Remove Item</th>
     </tr>
   </thead>
@@ -51,7 +53,8 @@ class SavedEvents extends Component {
   <td>{attractions.title}</td>
   <td>{attractions.description}</td>
   <td>{attractions.location}</td>
-  <td><Button onClick={() => this.deleteEvents(attractions._id)}></Button></td>
+  {/* <td>{attractions.dates.start.localDate}</td> */}
+  <td><Button variant="dark" onClick={() => this.deleteEvents(attractions._id)}>Remove</Button></td>
   </tr>
   ))}
     </tbody>

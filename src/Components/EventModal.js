@@ -19,7 +19,7 @@ class EventModal extends Component {
 
           <Modal.Body>
             {/* <img src={this.props.selectedEvent.images[0].url} className="img-fluid" alt={''}></img> */}
-            {/* <p>{this.props.selectedEvent['dates']['start'].localDate}</p> */}
+            <h2>{this.props.selectedEvent.dates?.start?.localeDate}</h2>
           </Modal.Body>
 
           <Modal.Footer>
