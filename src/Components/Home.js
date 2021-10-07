@@ -100,7 +100,7 @@ class Home extends Component {
                     variant='primary'
                     onClick={() => this.addEvents(attractions.name)}
                   >
-                    Save Event
+                    Save Event!
                   </Button>
                 ) : (
                   <Button id='eventbutton' variant='primary'>
