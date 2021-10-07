@@ -91,9 +91,16 @@ class Home extends Component {
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    ticket link
+                    Ticket Link
                   </a>
                 </Card.Text>
+                <Card.Text>
+                  <p> <strong>Min Price:</strong> ${attractions.priceRanges[0].min} | <strong>Max Price:</strong> ${attractions.priceRanges[0].max}</p>
+                  </Card.Text> 
+                  <Card.Text>
+                  <p><strong>Start Date:</strong> {attractions.dates.start.localDate} | <strong>Local Start Time:</strong> {attractions.dates.start.localTime}</p>
+                  </Card.Text>
+                  
                 {this.props.auth0.isAuthenticated ? (
                   <Button
                     id='eventbutton'
