@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { withAuth0 } from '@auth0/auth0-react';
-import LoginButton from './Components/LoginButton';
-// import Login from './Components/Login';
+// import LoginButton from './Components/LoginButton';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 import Home from './Components/Home';
 import SavedEvents from './Components/SavedEvents';
 import AboutUs from './Components/AboutUs';
-import Footer from './Components/Footer';
+import Login from './Components/Login';
+import devBios from './teamBios.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import devBios from './teamBios.json';
 import axios from 'axios';
 
 class App extends React.Component {
@@ -53,31 +53,26 @@ class App extends React.Component {
         <Router>
           <Header />
           <Switch>
-            <Route path='/login'>
-              <LoginButton />
+            <Route path='/saved-events'>
+              {this.props.auth0.isAuthenticated ? (
+                <SavedEvents
+                  eventData={this.state.eventData}
+                  getEvents={this.getEvents}
+                />
+              ) : (
+                <Login />
+              )}
             </Route>
-            {this.props.auth0.isAuthenticated && (
-              <>
-                <Route exact path='/'>
-                  <Home
-                    setSearchQuery={this.setSearchQuery}
-                    eventData={this.state.eventData}
-                    getEvents={this.getEvents}
-                  />
-                </Route>
-
-                <Route path='/saved-events'>
-                  <SavedEvents
-                    eventData={this.state.eventData}
-                    getEvents={this.getEvents}
-                  />
-                </Route>
-
-                <Route path='/about-us'>
-                  <AboutUs devInfo={this.state.devInfo} />
-                </Route>
-              </>
-            )}
+            <Route exact path='/'>
+              <Home
+                setSearchQuery={this.setSearchQuery}
+                eventData={this.state.eventData}
+                getEvents={this.getEvents}
+              />
+            </Route>
+            <Route path='/about-us'>
+              <AboutUs devInfo={this.state.devInfo} />
+            </Route>
           </Switch>
           <Footer />
         </Router>
