@@ -1,0 +1,32 @@
+#eventcard {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    background-color: gray;
+    opacity: 95%;
+    height: 350px;
+  }
+
+  #eventbutton {
+      background-color: #52796f;
+      color: #2f3e46;
+      border-color: #2f3e46;
+      font-weight: bolder;
+      
+  }
+
+  #eventbutton:visited {
+     background-color: darkslategray;
+  }
+
+  a:hover {
+    color: #84a98c;
+}
+
+  a:link {
+      color: #2f3e46;
+  }
+
+  a:visited {
+      color: #84a98c;
+  }
