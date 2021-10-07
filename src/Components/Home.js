@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import '../css/EventCards.css';
 
 
 class Home extends Component {
@@ -70,7 +71,7 @@ class Home extends Component {
                 <Card.Body>
                   <Card.Title>{attractions.name}</Card.Title>
                   <Card.Text><a href={attractions.url} target="_blank" rel="noopener noreferrer">ticket link</a></Card.Text>
-                  <Button variant='primary' onClick={() => this.addEvents(attractions.name)}>Save Event</Button>
+                  <Button id="eventbutton" variant='primary' onClick={() => this.addEvents(attractions.name)}>Save Event</Button>
                 </Card.Body>
               </Card>
             ))}

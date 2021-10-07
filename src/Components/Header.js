@@ -1,9 +1,8 @@
 import { Component } from "react";
-import { Navbar, NavItem } from 'react-bootstrap';
+import { FormGroup, Navbar, NavItem } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
-
 
 class Header extends Component {
 
