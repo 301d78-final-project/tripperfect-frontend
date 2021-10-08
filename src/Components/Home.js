@@ -17,7 +17,7 @@ class Home extends Component {
       error: false,
       searchQuery: '',
       displayModal: false,
-      selectedEvent: []
+      selectedEvent: null
     };
   }
 
@@ -26,19 +26,18 @@ class Home extends Component {
     let theEventThatICareAbout = this.props.eventData.find(
       att => att.name === titleOfTheEventThatIAmLookingFor
     );
-    console.log(
-      theEventThatICareAbout._embedded.attractions,
-      'FROM INSIDE ADD EVENTS'
-    );
+    // console.log(
+    //   theEventThatICareAbout._embedded.attractions,
+    //   'FROM INSIDE ADD EVENTS'
+    // );
     const config = {
       data: {
         title: theEventThatICareAbout.name,
-        //change description to url(here&server)
         description: theEventThatICareAbout.url,
         location: theEventThatICareAbout._embedded.venues[0].city.name,
         // formatted_address: theEventThatICareAbout,
         // date: theEventThatICareAbout._embedded.events.sales.public.startDateTime,
-        email: 'email@example.com',
+        email: this.props.auth0.user.email,
       },
       method: 'post',
       baseURL: 'http://localhost:3001/favorites',
@@ -98,14 +97,14 @@ class Home extends Component {
           }}
         >
           {/* <Col fluid> */}
-          {this.props.eventData.map(attractions => (
-            <Card id='eventcard' style={{ width: '18rem' }}>
-              <Card.Img variant='top' src={attractions.images[0].url} />
+          {this.props.eventData.map(attraction => (
+            <Card key={attraction.id} id='eventcard' style={{ width: '18rem' }}>
+              <Card.Img variant='top' src={attraction.images[0].url} />
               <Card.Body>
-                <Card.Title>{attractions.name}</Card.Title>
+                <Card.Title>{attraction.name}</Card.Title>
                 <Card.Text>
                   <a
-                    href={attractions.url}
+                    href={attraction.url}
                     target='_blank'
                     rel='noopener noreferrer'
                   >
@@ -113,19 +112,19 @@ class Home extends Component {
                   </a>
                 </Card.Text>
                 <Card.Text>
-                  <p> <strong>Min Price:</strong> ${attractions.priceRanges[0].min} | <strong>Max Price:</strong> ${attractions.priceRanges[0].max}</p>
+                   <strong>Min Price:</strong> ${attraction.priceRanges[0].min} | <strong>Max Price:</strong> ${attraction.priceRanges[0].max}
                 </Card.Text>
                 <Card.Text>
-                  <p><strong>Start Date:</strong> {attractions.dates.start.localDate} | <strong>Local Start Time:</strong> {attractions.dates.start.localTime}</p>
+                  <strong>Start Date:</strong> {attraction.dates.start.localDate} | <strong>Local Start Time:</strong> {attraction.dates.start.localTime}
                 </Card.Text>
-                <Button onClick={() => this.showModal(attractions.name)}>More Info</Button>
+                <Button onClick={() => this.showModal(attraction.name)}>More Info</Button>
                 <EventModal selectedEvent={this.state.selectedEvent} displayModal={this.state.displayModal} onHide={this.hideModal} />
 
                 {this.props.auth0.isAuthenticated ? (
                   <Button
                     id='eventbutton'
                     variant='primary'
-                    onClick={() => this.addEvents(attractions.name)}
+                    onClick={() => this.addEvents(attraction.name)}
                   >
                     Save Event!
                   </Button>

@@ -29,7 +29,6 @@ class App extends React.Component {
   getEvents = async event => {
     event.preventDefault();
     try {
-      console.log(`made it here`);
       const eventAPI = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
       //const eventApi = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
       
