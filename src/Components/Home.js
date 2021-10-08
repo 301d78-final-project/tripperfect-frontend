@@ -26,22 +26,18 @@ class Home extends Component {
     let theEventThatICareAbout = this.props.eventData.find(
       att => att.name === titleOfTheEventThatIAmLookingFor
     );
-    // console.log(
-    //   theEventThatICareAbout._embedded.attractions,
-    //   'FROM INSIDE ADD EVENTS'
-    // );
+
     const config = {
       data: {
         title: theEventThatICareAbout.name,
         description: theEventThatICareAbout.url,
         location: theEventThatICareAbout._embedded.venues[0].city.name,
-        // formatted_address: theEventThatICareAbout,
-        // date: theEventThatICareAbout._embedded.events.sales.public.startDateTime,
         email: this.props.auth0.user.email,
       },
       method: 'post',
-      baseURL: 'http://localhost:3001/favorites',
+      baseURL: `${process.env.REACT_APP_SERVER}/favorites`,
     };
+    
     // }
 
     const response = await axios(config);

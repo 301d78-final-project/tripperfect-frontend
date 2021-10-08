@@ -12,7 +12,6 @@ class EventModal extends Component {
     if (!this.props.selectedEvent) {
       return null;
     }
-    // console.log(this.props.selectedEvent)
     return (
       
       <Modal show={this.props.displayModal} onHide={this.props.onHide}>
@@ -22,7 +21,6 @@ class EventModal extends Component {
           </Modal.Header>
 
           <Modal.Body>
-            {/* <img src={this.props.selectedEvent.images[0].url} className="img-fluid" alt={''}></img> */}
             <h2>GENERAL INFO</h2>
             <ul>
             <li>{this.props.selectedEvent.dates.start.localDate} at {this.props.selectedEvent.dates.start.localTime} local time</li>
@@ -35,7 +33,6 @@ class EventModal extends Component {
           </Modal.Body>
 
           <Modal.Footer>
-            {/* <p>{this.props.dates.start.localDate}</p> */}
             <Button variant="secondary" onClick={this.props.onHide}>Close</Button>
           </Modal.Footer>
         </Modal.Dialog>

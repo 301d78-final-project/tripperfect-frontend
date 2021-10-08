@@ -16,9 +16,8 @@ class SavedEvents extends Component {
   }
 
   getSavedEvents  =  async () => {
-    const savedEventAPI = `http://localhost:3001/favorites?email=${this.props.auth0.user.email}`;
+    const savedEventAPI = `${process.env.REACT_APP_SERVER}/favorites?email=${this.props.auth0.user.email}`;
     const eventResponse = await axios.get(savedEventAPI);
-    // console.log(eventResponse.data, 'THIS IS eventResponse.data from inside getSavedEvents')  
     this.setState({
       eventData: eventResponse.data,      
     });
@@ -29,9 +28,7 @@ class SavedEvents extends Component {
   }
 
   deleteEvents = async (id) => {
-    // console.log(id, "THIS IS ID");
-    // console.log(this.state.eventData, "THIS IS EVENT DATA");
-    const deleteEvent = `http://localhost:3001/favorites/${id}`;
+    const deleteEvent = `${process.env.REACT_APP_SERVER}/favorites/${id}`;
     await axios.delete(deleteEvent);
     this.getSavedEvents();
   }
