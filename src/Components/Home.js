@@ -150,11 +150,11 @@ class Home extends Component {
           <Card style={{ width: '30rem' }}>
             <Card.Img
               variant='top'
-              src='https://developer.ticketmaster.com/assets/img/products-and-docs/map.jpg'
+              src='./images/TripPerfect2.png'
+              alt="welcome to TripPerfect"
             />
             <Card.Body>
-              <Card.Title>Map</Card.Title>
-              <Card.Text>Basic city address here:</Card.Text>
+              <Card.Title>WELCOME!</Card.Title>
             </Card.Body>
           </Card>
           {/* </Col> */}
