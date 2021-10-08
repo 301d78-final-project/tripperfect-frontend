@@ -43,7 +43,6 @@ class SavedEvents extends Component {
       <thead>
     <tr>
       <th>Event Title</th>
-      <th>Link to Ticket Master</th>
       <th>City</th>
       {/* <th>Start Date</th> */}
       <th>Remove Item</th>
@@ -52,8 +51,7 @@ class SavedEvents extends Component {
   <tbody>
   {this.state.eventData.map((attractions) => (  
   <tr>
-  <td>{attractions.title}</td>
-  <td>{attractions.description}</td>
+  <td><a href={attractions.description}>{attractions.title}</a></td>
   <td>{attractions.location}</td>
   {/* <td>{attractions.dates.start.localDate}</td> */}
   <td><Button variant="dark" onClick={() => this.deleteEvents(attractions._id)}>Remove</Button></td>
