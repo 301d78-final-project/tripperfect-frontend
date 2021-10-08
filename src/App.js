@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { withAuth0 } from '@auth0/auth0-react';
-// import LoginButton from './Components/LoginButton';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
@@ -29,8 +28,7 @@ class App extends React.Component {
   getEvents = async event => {
     event.preventDefault();
     try {
-      const eventAPI = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
-      //const eventApi = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
+      const eventAPI = `${process.env.REACT_APP_SERVER}/events?city=${this.state.searchQuery}&startDateTime`;
       
       const eventResponse = await axios.get(eventAPI);
       console.log(
