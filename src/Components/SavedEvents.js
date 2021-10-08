@@ -41,24 +41,24 @@ class SavedEvents extends Component {
       <>
       <Table striped bordered hover id="eventsTable" >
       <thead>
-    <tr>
+      <tr>
       <th>Event Title</th>
       <th>City</th>
       <th>Remove Item</th>
-    </tr>
-  </thead>
-  <tbody>
-  {this.state.eventData.map((attractions) => (  
-  <tr>
-  <td><a href={attractions.description}>{attractions.title}</a></td>
-  <td>{attractions.location}</td>
-  <td><Button variant="dark" onClick={() => this.deleteEvents(attractions._id)}>Remove</Button></td>
-  </tr>
-  ))}
-    </tbody>
-    </Table>
-</>
-    )
+      </tr>
+      </thead>
+      <tbody>
+      {this.state.eventData.map((attractions) => (  
+      <tr>
+      <td><a href={attractions.description}>{attractions.title}</a></td>
+      <td>{attractions.location}</td>
+      <td><Button variant="dark" onClick={() => this.deleteEvents(attractions._id)}>Remove</Button></td>
+      </tr>
+      ))}
+      </tbody>
+      </Table>
+      </>
+      )
+    }
   }
-}
 export default withAuth0(SavedEvents);
