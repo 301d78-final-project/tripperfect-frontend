@@ -12,7 +12,9 @@ class Header extends Component {
     return (
       <Navbar bg='dark' variant='dark'>
         <Container>
-          <Navbar.Brand href='#home'>LOGO HERE</Navbar.Brand>
+        <Navbar.Brand href='#home'>
+            <img src={"./images/blimp.png"} alt='logo' style={{height:50}}/>
+          </Navbar.Brand>
           <Nav className='me-auto'>
             <NavItem>
               <Link to='/' className='nav-link'>
