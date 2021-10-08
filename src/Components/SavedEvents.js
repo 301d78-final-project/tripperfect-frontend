@@ -2,6 +2,8 @@ import { Component } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import '../css/SavedEvents.css'
+import { withAuth0 } from '@auth0/auth0-react';
+
 import axios from 'axios';
 
 class SavedEvents extends Component {
@@ -14,7 +16,7 @@ class SavedEvents extends Component {
   }
 
   getSavedEvents  =  async () => {
-    const savedEventAPI = `http://localhost:3001/favorites?email=email@example.com`;
+    const savedEventAPI = `http://localhost:3001/favorites?email=${this.props.auth0.user.email}`;
     const eventResponse = await axios.get(savedEventAPI);
     // console.log(eventResponse.data, 'THIS IS eventResponse.data from inside getSavedEvents')  
     this.setState({
@@ -63,4 +65,4 @@ class SavedEvents extends Component {
     )
   }
 }
-export default SavedEvents;
+export default withAuth0(SavedEvents);
