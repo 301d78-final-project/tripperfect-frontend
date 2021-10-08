@@ -142,7 +142,7 @@ class Home extends Component {
           }}
         >
           {/* <Col> */}
-          <Card style={{ width: '30rem' }}>
+          <Card style={{ width: '30rem' }} id='welcome-card'>
             <Card.Img
               variant='top'
               src='./images/TripPerfect2.png'
