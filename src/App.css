@@ -42,7 +42,7 @@ body {
   background-image: url('./images/cityscape2.jpeg');
   background-position: top;
   background-attachment: fixed;
-  background-size: auto;
+  background-size: cover;
   height: 100%;
 }
 
