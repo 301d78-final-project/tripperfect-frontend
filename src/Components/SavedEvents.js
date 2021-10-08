@@ -44,7 +44,6 @@ class SavedEvents extends Component {
     <tr>
       <th>Event Title</th>
       <th>City</th>
-      {/* <th>Start Date</th> */}
       <th>Remove Item</th>
     </tr>
   </thead>
@@ -53,7 +52,6 @@ class SavedEvents extends Component {
   <tr>
   <td><a href={attractions.description}>{attractions.title}</a></td>
   <td>{attractions.location}</td>
-  {/* <td>{attractions.dates.start.localDate}</td> */}
   <td><Button variant="dark" onClick={() => this.deleteEvents(attractions._id)}>Remove</Button></td>
   </tr>
   ))}
