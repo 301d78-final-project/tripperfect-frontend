@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { render } from '@testing-library/react';
 import bios from '../teamBios.json'
 import AuthorCard from './AuthorCard'
 // import devInfo from '../teamBios.json';
