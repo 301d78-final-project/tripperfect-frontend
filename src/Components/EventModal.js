@@ -12,7 +12,7 @@ class EventModal extends Component {
     if (!this.props.selectedEvent) {
       return null;
     }
-    console.log(this.props.selectedEvent)
+    // console.log(this.props.selectedEvent)
     return (
       
       <Modal show={this.props.displayModal} onHide={this.props.onHide}>
@@ -23,7 +23,15 @@ class EventModal extends Component {
 
           <Modal.Body>
             {/* <img src={this.props.selectedEvent.images[0].url} className="img-fluid" alt={''}></img> */}
-            <h2>{this.props.selectedEvent.dates.start.localDate}</h2>
+            <h2>GENERAL INFO</h2>
+            <ul>
+            <li>{this.props.selectedEvent.dates.start.localDate} at {this.props.selectedEvent.dates.start.localTime} local time</li>
+            <li>EVENT INFO: {this.props.selectedEvent.info}</li>
+            <li>PRICE RANGE: ${this.props.selectedEvent.priceRanges[0].min} - ${this.props.selectedEvent.priceRanges[0].max}</li>
+            <li>PROMOTER: {this.props.selectedEvent.promoter.description}</li>
+            <li>{this.props.selectedEvent.ticketLimit.info}</li>
+            </ul>
+            <img  alt="" src ={this.props.selectedEvent.seatmap.staticUrl} style={{height:300}} />
           </Modal.Body>
 
           <Modal.Footer>

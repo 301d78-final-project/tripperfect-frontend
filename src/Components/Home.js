@@ -33,7 +33,6 @@ class Home extends Component {
     const config = {
       data: {
         title: theEventThatICareAbout.name,
-        //change description to url(here&server)
         description: theEventThatICareAbout.url,
         location: theEventThatICareAbout._embedded.venues[0].city.name,
         // formatted_address: theEventThatICareAbout,
