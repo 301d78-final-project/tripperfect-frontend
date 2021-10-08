@@ -26,10 +26,10 @@ class Home extends Component {
     let theEventThatICareAbout = this.props.eventData.find(
       att => att.name === titleOfTheEventThatIAmLookingFor
     );
-    console.log(
-      theEventThatICareAbout._embedded.attractions,
-      'FROM INSIDE ADD EVENTS'
-    );
+    // console.log(
+    //   theEventThatICareAbout._embedded.attractions,
+    //   'FROM INSIDE ADD EVENTS'
+    // );
     const config = {
       data: {
         title: theEventThatICareAbout.name,
@@ -112,10 +112,10 @@ class Home extends Component {
                   </a>
                 </Card.Text>
                 <Card.Text>
-                  <p> <strong>Min Price:</strong> ${attraction.priceRanges[0].min} | <strong>Max Price:</strong> ${attraction.priceRanges[0].max}</p>
+                   <strong>Min Price:</strong> ${attraction.priceRanges[0].min} | <strong>Max Price:</strong> ${attraction.priceRanges[0].max}
                 </Card.Text>
                 <Card.Text>
-                  <p><strong>Start Date:</strong> {attraction.dates.start.localDate} | <strong>Local Start Time:</strong> {attraction.dates.start.localTime}</p>
+                  <strong>Start Date:</strong> {attraction.dates.start.localDate} | <strong>Local Start Time:</strong> {attraction.dates.start.localTime}
                 </Card.Text>
                 <Button onClick={() => this.showModal(attraction.name)}>More Info</Button>
                 <EventModal selectedEvent={this.state.selectedEvent} displayModal={this.state.displayModal} onHide={this.hideModal} />
