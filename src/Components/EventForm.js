@@ -11,7 +11,10 @@ export default class EventForm extends React.Component {
               <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
                 Please Enter City Name
               </Form.Label>
-              <Form.Control onChange={(event) => this.props.setSearchQuery(event.target.value)}
+              <Form.Control
+                onChange={(event) =>
+                  this.props.setSearchQuery(event.target.value)
+                }
                 placeholder="Ex: Seattle"
               />
             </Col>
