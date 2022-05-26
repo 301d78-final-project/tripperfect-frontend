@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Button, Row } from "react-bootstrap";
-// import EventModal from "./EventModal";
+import EventModal from "./EventModal";
 
 class EventCard extends Component {
   render() {
@@ -41,11 +41,11 @@ class EventCard extends Component {
                 <Button onClick={() => this.props.showModal(attraction.name)}>
                   More Info
                 </Button>
-                {/* <EventModal
+                <EventModal
                   selectedEvent={this.props.selectedEvent}
                   displayModal={this.props.displayModal}
                   onHide={this.props.hideModal}
-                /> */}
+                />
 
                 {this.props.auth0.isAuthenticated ? (
                   <Button
