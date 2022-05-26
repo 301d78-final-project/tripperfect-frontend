@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Card } from 'react-bootstrap';
-import LoginButton from './LoginButton';
+import React, { Component } from "react";
+import { Card } from "react-bootstrap";
+import LoginButton from "./LoginButton";
 
 class Login extends Component {
   render() {

@@ -1,48 +1,39 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { withAuth0 } from '@auth0/auth0-react';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Home from './Components/Home';
-import SavedEvents from './Components/SavedEvents';
-import AboutUs from './Components/AboutUs';
-import Login from './Components/Login';
-import devBios from './teamBios.json';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { withAuth0 } from "@auth0/auth0-react";
+import Header from "./Components/Header";
+import Home from "./Components/Home";
+import SavedEvents from "./Components/SavedEvents";
+import AboutUs from "./Components/AboutUs";
+import Login from "./Components/Login";
+import Footer from "./Components/Footer";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      devInfo: devBios,
       eventData: [],
+      searchQuery: ''
     };
   }
 
-  setSearchQuery = searchQuery => {
-    this.setState({ searchQuery: searchQuery });
-  };
+  setSearchQuery = (searchQuery) => this.setState({ searchQuery: searchQuery });
 
-  getEvents = async event => {
+  getEvents = async (event) => {
     event.preventDefault();
     try {
-      const eventAPI = `${process.env.REACT_APP_SERVER}/events?city=${this.state.searchQuery}&startDateTime`;
-      
+      const eventAPI = `http://localhost:3001/events?city=${this.state.searchQuery}&startDateTime`;
       const eventResponse = await axios.get(eventAPI);
+      console.log(eventResponse, "<== eventResponse");
       console.log(
         eventResponse.data._embedded.events,
-        'THIS IS eventResponse.data'
+        "<== eventResponse.data._embedded.events"
       );
-      this.setState({
-        eventData: eventResponse.data._embedded.events,
-      });
-      this.getMap();
+      this.setState({ eventData: eventResponse.data._embedded.events });
     } catch (error) {
-      this.setState({
-        error: true,
-      });
+      this.setState({ error: true });
     }
   };
 
@@ -52,7 +43,7 @@ class App extends React.Component {
         <Router>
           <Header />
           <Switch>
-            <Route path='/saved-events'>
+            <Route path="/saved-events">
               {this.props.auth0.isAuthenticated ? (
                 <SavedEvents
                   eventData={this.state.eventData}
@@ -62,14 +53,14 @@ class App extends React.Component {
                 <Login />
               )}
             </Route>
-            <Route exact path='/'>
+            <Route exact path="/">
               <Home
                 setSearchQuery={this.setSearchQuery}
                 eventData={this.state.eventData}
                 getEvents={this.getEvents}
               />
             </Route>
-            <Route path='/about-us'>
+            <Route path="/about-us">
               <AboutUs devInfo={this.state.devInfo} />
             </Route>
           </Switch>
