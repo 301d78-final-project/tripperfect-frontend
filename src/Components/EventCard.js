@@ -5,7 +5,23 @@ import EventModal from "./EventModal";
 import axios from "axios";
 
 class EventCard extends Component {
-    
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayModal: false,
+      selectedEvent: null,
+    };
+  }
+
+  showModal = (title) => {
+    const selectedEvent = this.props.eventData.find(
+      (singleEvent) => singleEvent.name === title
+    );
+    this.setState({ displayModal: true, selectedEvent: selectedEvent });
+  };
+
+  hideModal = () => this.setState({ displayModal: false });
+
   addEvents = async (savedEvent) => {
     try {
       let addedEvent = this.props.eventData.find(
@@ -63,13 +79,13 @@ class EventCard extends Component {
                   <strong>Local Start Time:</strong>{" "}
                   {attraction.dates.start.localTime}
                 </Card.Text>
-                <Button onClick={() => this.props.showModal(attraction.name)}>
+                <Button onClick={() => this.showModal(attraction.name)}>
                   More Info
                 </Button>
                 <EventModal
-                  selectedEvent={this.props.selectedEvent}
-                  displayModal={this.props.displayModal}
-                  onHide={this.props.hideModal}
+                  selectedEvent={this.state.selectedEvent}
+                  displayModal={this.state.displayModal}
+                  onHide={this.hideModal}
                 />
 
                 {this.props.auth0.isAuthenticated ? (

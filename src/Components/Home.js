@@ -8,20 +8,10 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedEvent: null,
-      displayModal: false,
       error: false,
     };
   }
-
-  showModal = (title) => {
-    const selectedEvent = this.props.eventData.find(
-      (singleEvent) => singleEvent.name === title
-    );
-    this.setState({ displayModal: true, selectedEvent: selectedEvent });
-  };
-
-  hideModal = () => this.setState({ displayModal: false });
+  // hideModal = () => this.setState({ displayModal: false });
 
   render() {
     return (
@@ -31,12 +21,9 @@ class Home extends Component {
           setSearchQuery={this.props.setSearchQuery}
         />
         <EventCard
-          showModal={this.showModal}
-          hideModal={this.hideModal}
+          // hideModal={this.hideModal}
           addEvents={this.addEvents}
           eventData={this.props.eventData}
-          selectedEvent={this.state.selectedEvent}
-          displayModal={this.state.displayModal}
         />
       </Container>
     );
