@@ -2,8 +2,9 @@ import { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Row, Button } from "react-bootstrap";
 import EventModal from "./EventModal";
+import WelcomeCard from "./WelcomeCard";
 import axios from "axios";
-import tP2 from '../images/TripPerfect2.png';
+
 
 class EventCard extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class EventCard extends Component {
           title: addedEvent.name,
           description: addedEvent.url,
           location: addedEvent._embedded.venues[0].city.name,
+          venue: addedEvent._embedded.venues.name,
           email: this.props.auth0.user.email,
         },
         method: "post",
@@ -106,24 +108,7 @@ class EventCard extends Component {
             </Card>
           ))}
         </Row>
-        <Row
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Card style={{ width: "30rem" }} id="welcome-card">
-            <Card.Img
-              variant="top"
-              src={tP2}
-              alt="welcome to TripPerfect"
-            />
-            <Card.Body>
-              <Card.Title>WELCOME!</Card.Title>
-            </Card.Body>
-          </Card>
-        </Row>
+        <WelcomeCard />
       </>
     );
   }
