@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Container } from "react-bootstrap";
 import EventForm from "../EventForm";
-import EventCard from "../EventCard";
+import Event from "../Event";
 import "./Home.css";
 
 class Home extends Component {
@@ -12,8 +12,7 @@ class Home extends Component {
           getEvents={this.props.getEvents}
           setSearchQuery={this.props.setSearchQuery}
         />
-        <EventCard
-          addEvents={this.addEvents}
+        <Event
           eventData={this.props.eventData}
         />
       </Container>
