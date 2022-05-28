@@ -1,18 +1,10 @@
 import { Component } from "react";
 import { Container } from "react-bootstrap";
-import EventForm from "./EventForm";
-import EventCard from "./EventCard";
-import "../css/EventCards.css";
+import EventForm from "../EventForm";
+import EventCard from "../EventCard";
+import "./Home.css";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: false,
-    };
-  }
-  // hideModal = () => this.setState({ displayModal: false });
-
   render() {
     return (
       <Container className="text-center">
@@ -21,7 +13,6 @@ class Home extends Component {
           setSearchQuery={this.props.setSearchQuery}
         />
         <EventCard
-          // hideModal={this.hideModal}
           addEvents={this.addEvents}
           eventData={this.props.eventData}
         />

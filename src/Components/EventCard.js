@@ -3,13 +3,15 @@ import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Row, Button } from "react-bootstrap";
 import EventModal from "./EventModal";
 import axios from "axios";
+import tP2 from '../images/TripPerfect2.png';
 
 class EventCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayModal: false,
       selectedEvent: null,
+      displayModal: false,
+      error: false,
     };
   }
 
@@ -27,7 +29,6 @@ class EventCard extends Component {
       let addedEvent = this.props.eventData.find(
         (attraction) => attraction.name === savedEvent
       );
-
       const config = {
         data: {
           title: addedEvent.name,
@@ -41,7 +42,7 @@ class EventCard extends Component {
       const response = await axios(config);
       console.log(response.data, "<== response.data");
     } catch (e) {
-      console.log(e, "error in addEvents");
+      this.setState({ error: true });
     }
   };
 
@@ -55,8 +56,8 @@ class EventCard extends Component {
             justifyContent: "center",
           }}
         >
-          {this.props.eventData.map((attraction) => (
-            <Card key={attraction.id} id="eventcard" style={{ width: "18rem" }}>
+          {this.props.eventData.map((attraction, idx) => (
+            <Card key={idx} id="eventcard" style={{ width: "18rem" }}>
               <Card.Img variant="top" src={attraction.images[0].url} />
               <Card.Body>
                 <Card.Title>{attraction.name}</Card.Title>
@@ -70,12 +71,12 @@ class EventCard extends Component {
                   </a>
                 </Card.Text>
                 <Card.Text>
-                  <strong>Min Price:</strong> ${attraction.priceRanges[0].min} |{" "}
-                  <strong>Max Price:</strong> ${attraction.priceRanges[0].max}
+                  <strong>Min Price:</strong> ${attraction.priceRanges.Titlemin} |{" "}
+                  <strong>Max Price:</strong> ${attraction.priceRanges.max}
                 </Card.Text>
                 <Card.Text>
                   <strong>Start Date:</strong>{" "}
-                  {attraction.dates.start.localDate} |{" "}
+                  {attraction.dates.start.localDate.toString} |{" "}
                   <strong>Local Start Time:</strong>{" "}
                   {attraction.dates.start.localTime}
                 </Card.Text>
@@ -115,7 +116,7 @@ class EventCard extends Component {
           <Card style={{ width: "30rem" }} id="welcome-card">
             <Card.Img
               variant="top"
-              src="./images/TripPerfect2.png"
+              src={tP2}
               alt="welcome to TripPerfect"
             />
             <Card.Body>
