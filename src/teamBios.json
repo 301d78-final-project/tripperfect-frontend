@@ -3,7 +3,7 @@
     {
       "name": "Marquesa Asmussen",
       "bio": "Marquesa is a Seattle-based software developer. She comes from a diverse background with experience in sales, construction, the food and beverage industry and the performing arts. She is a passionate communicator who strives to make connections and build a sense of community, uplifting and encouraging her peers to grow themselves. Marquesa is driven to give her clients the best possible development experience and finished product.",
-      "img": "../images/MarquesaAsmussen.jpeg",
+      "img": "../authorImages/MarquesaAsmussen.jpeg",
       "linkedin": "https://www.linkedin.com/in/marquesaa/",
       "github": "https://github.com/MarquesaAsmussen"
     },
@@ -11,7 +11,7 @@
       "name": "Steve Ngo",
       "bio": "Software Engineer. The goals I have for myself include learning how to code more advanced programs while creating an appealing UX/UI. I enjoy collecting things like music boxes, cooking lavish dinners, and driving high performance vehicles.",
       "portfolioBio": " I'm Steve Ngo, and for the last half a decade I’ve spent most of my time working in the digital media profession. My previous employment includes being a documentation production specialist for the United States Army. The job duties for that role include photographer and videographer. After leaving the service I decided to get an associate degree and work freelance in graphic design. I am now working in front end web development. I decided to become a software developer because of my background in digital media and falling in love with the technical side of it. Just like how large companies incorporate vertical integration to the growth I decided to do the same with my trade. Whether you need a lens specialist, branding specialist, or software engineer, I can do it all! I love creating products to help my customers grow their businesses and get their word out there. When I make a product for them I want it to feel like it’s them saying, hello world, I’m here and I’m waiting for you to come see what I have to offer for you. And that’s how I want people to see me, hello! I’m here and I’m waiting for you to come see what I have to offer you!",
-      "img": "../images/SteveNgo.jpeg",
+      "img": "../authorImages/SteveNgo.jpeg",
       "linkedin": "https://www.linkedin.com/in/alsosteve/",
       "github": "https://github.com/alsosteve"
     },
@@ -19,21 +19,21 @@
       "name": "Eddie Ponce",
       "bio": "My name is Eddie Ponce, and I am a Marine Corps Veteran. I served Active Duty from 2016-2021 as a Ground Intelligence Specialist. Upon completion of Code Fellows, I’d like to land a job as a Front-End Web Developer at a tech company within Washington State. So far, I’m loving the content I’ve learned from the 201 course and wish to continue progressing through 301 and 401. My biggest goal is to make a positive impact in the Tech Industry and to continuously challenge my limits a new Developer.",
       "portfolioBio": "Hi! My name is Eddie Ponce, and I am a Software Developer from Vancouver, WA. I am also a USMC Veteran who served five years on Active-Duty orders as a Ground Intelligence Analyst/Platoon Sergeant and received multiple awards and certifications during my time in service. I chose to get into Software Development because of the problem solving/critical-thinking aspect of the job and I like to think of myself as a logical thinker. I write code just about everyday and enjoy learning about new technology on my off time! Some professional skills I acquire are leadership, problem-solving, teamwork, commercial awareness, perseverance, and motivation. I'm seeking to make a positive impact in my next workspace and to continuously challenge my limits as a soon-to-be Software Developer.",
-      "img": "../images/EddiePonce.jpeg",
+      "img": "../authorImages/EddiePonce.jpeg",
       "linkedin": "https://www.linkedin.com/in/eddie-ponce/",
       "github": "https://github.com/ponceedi000"
     },
     {
       "name": "Katy Roffe",
       "bio": "I'm Katy Roffe. I'm a Software Developer with a background in Accounting. My interests have always leaned more towards the arts. In fact, my love of writing was what sparked an interest in web development after some friends and I attempted to build a website to host paragraph roleplays. I decided to make a career switch to software development because it struck me as the area where logic meets creativity, and I'm currently taking an accelerated course to learn full-stack JavaScript due to its versatility and its relationship to web design. While my accounting experience makes me appreciate the logic involved in the back-end, my interest lies in front-end development. I'm interested in building out applications that are visually pleasing without losing functionality or accessibility. Ideally I’d love to find myself working for a company involved in developing easy to use technology for non-profits, and then in my downtime put my storytelling to use through game development.",
-      "img": "../images/KatyRoffe.jpeg",
+      "img":"../authorImages/KatyRoffe.jpeg",
       "linkedin": "https://www.linkedin.com/in/katy-roffe/",
       "github": "https://github.com/KatyRoffe"
     },
     {
       "name": "Cameron Walden",
       "bio": "Hi I'm Cameron Walden, a full stack software developer. I have a background in audio engineering, customer relations and as a performing artist. This is all to say that I have a wide range of skills and services at my disposal and am able to accomplish anything I set out to do. I have constantly and consistently proven myself to go above and beyond while working on projects either as an individual or as part of a team. I feel extremely confident in taking on leadership roles, but also have no issues with following orders. I love problem solving and thrive in high stakes environments. I'm always searching for the next big challenge and ways to improve myself. I'm looking for opportunities where I can both learn new skills and solidify the ones I already have. I feel the best way to learn is through teaching, so I'm also looking for opportunities to help others reach their full potential, because in turn, they would be helping me reach mine.",
-      "img": "../images/CameronWalden.jpeg",
+      "img": "../authorImages/CameronWalden.jpeg",
       "linkedin": "https://www.linkedin.com/in/cameronwalden/",
       "github": "https://github.com/Cameron-Walden"
     }
