@@ -9,7 +9,6 @@ class SavedEvents extends Component {
     super(props);
     this.state = {
       eventData: [],
-      dislpayDeleteModal: false,
     };
   }
 
