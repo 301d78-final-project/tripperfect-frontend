@@ -35,7 +35,7 @@ class SavedEvents extends Component {
           <SavedEventCard
             eventData={this.state.eventData}
             attraction={attraction}
-            idx={idx}
+            key={idx}
             deleteEvents={this.deleteEvents}
           />
         ))}
