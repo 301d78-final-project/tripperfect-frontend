@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import { Container, Card, Row, Col, Button } from "react-bootstrap";
+import SavedEventCard from "../SavedEventCard";
 import "./SavedEvents.css";
 
 class SavedEvents extends Component {
@@ -9,15 +9,14 @@ class SavedEvents extends Component {
     super(props);
     this.state = {
       eventData: [],
+      dislpayDeleteModal: false,
     };
   }
 
   getSavedEvents = async () => {
     const savedEventAPI = `http://localhost:3001/favorites?email=${this.props.auth0.user.email}`;
     const eventResponse = await axios.get(savedEventAPI);
-    this.setState({
-      eventData: eventResponse.data,
-    });
+    this.setState({ eventData: eventResponse.data });
   };
 
   deleteEvents = async (id) => {
@@ -34,31 +33,12 @@ class SavedEvents extends Component {
     return (
       <>
         {this.state.eventData.map((attraction, idx) => (
-          <Container key={idx} fluid>
-            <Row
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Col sm={3}>
-                <Card style={{ width: "18rem" }}>
-                  {/* <Card.Img variant="top" src={}/> */}
-                  <Card.Body>
-                    <Card.Title>{attraction.title}</Card.Title>
-                    <Card.Text></Card.Text>
-                    <Button
-                      variant="danger"
-                      onClick={() => this.deleteEvents(attraction._id)}
-                    >
-                      Delete Event
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
+          <SavedEventCard
+            eventData={this.state.eventData}
+            attraction={attraction}
+            idx={idx}
+            deleteEvents={this.deleteEvents}
+          />
         ))}
       </>
     );
