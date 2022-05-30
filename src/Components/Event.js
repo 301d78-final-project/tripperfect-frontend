@@ -1,30 +1,28 @@
-import { Component } from "react";
+import { useState } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import EventCard from "./EventCard";
 
-class Event extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedEvent: null,
-      displayModal: false,
-      error: false,
-    };
-  }
+const Event = props => {
 
-  showModal = (title) => {
-    const selectedEvent = this.props.eventData.find(
+  let [selectedEvent, setSelectedEvent] = useState(null);
+  let [displayModal, setDisplayModal] = useState(false);
+  let [error, setError] = useState(null);
+
+  const showModal = (title) => {
+    let selectedEvent = props.eventData.find(
       (singleEvent) => singleEvent.name === title
     );
-    this.setState({ displayModal: true, selectedEvent: selectedEvent });
+    console.log(selectedEvent, 'this is selectedEvent')
+    setDisplayModal(displayModal = true)
+    setSelectedEvent(selectedEvent)
   };
 
-  hideModal = () => this.setState({ displayModal: false });
+  const hideModal = () => setDisplayModal(displayModal = false);
 
-  addEvents = async (savedEvent) => {
+  const addEvents = async (savedEvent) => {
     try {
-      let addedEvent = this.props.eventData.find(
+      let addedEvent = props.eventData.find(
         (attraction) => attraction.name === savedEvent
       );
       const config = {
@@ -33,7 +31,7 @@ class Event extends Component {
           description: addedEvent.url,
           location: addedEvent._embedded.venues[0].city.name,
           venue: addedEvent._embedded.venues.name,
-          email: this.props.auth0.user.email,
+          email: props.auth0.user.email,
         },
         method: "post",
         baseURL: `http://localhost:3001/favorites`,
@@ -41,25 +39,23 @@ class Event extends Component {
       const response = await axios(config);
       console.log(response.data, "<== response.data");
     } catch (e) {
-      this.setState({ error: true });
+      setError(error = true)
     }
   };
 
-  render() {
     return (
       <>
         <EventCard
-          selectedEvent={this.state.selectedEvent}
-          displayModal={this.state.displayModal}
-          error={this.state.error}
-          showModal={this.showModal}
-          hideModal={this.hideModal}
-          addEvents={this.addEvents}
-          eventData={this.props.eventData}
+          selectedEvent={selectedEvent}
+          displayModal={displayModal}
+          error={error}
+          showModal={showModal}
+          hideModal={hideModal}
+          addEvents={addEvents}
+          eventData={props.eventData}
         />
       </>
     );
   }
-}
 
 export default withAuth0(Event);
