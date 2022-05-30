@@ -2,52 +2,33 @@
 
 ## Authors: Marquesa Asmussen, Steve Ngo, Eddie Ponce, Katy Roffe, Cameron Walden
 
-## PRODUCT NAME: TripPerfect
+***
 
 ## Problem Domain
 
 Everyone travels, but frequently are left wondering what to do in their new city. "Where is the best Japanese food?" "Are there cool local sights?" "Where can I get a taste of the local flavor?"... These are all questions we've faced while traveling. We want to create an app that will help these wayward travelers find their way in their travels
 
-## MVP
-
-- Home page
-- Login page
-- Search page
-  - returns local events
-- Favorites page
-  - user can store favorite events
-- About Us
-  - user can learn about company/dev team
-
-## Available APIs
-
-PredictHQ - (https://www.predicthq.com)
-Eventbrite (Links to an external site.) | Find events | OAuth | Yes | Unknown
-Picatic (Links to an external site.) | Sell tickets anywhere | apiKey | Yes | Unknown
-SeatGeek (Links to an external site.) | Search events, venues and performers | apiKey | Yes | Unknown
-Ticketmaster (Links to an external site.) | Search events, attractions, or venues | apiKey | Yes | Unknown
+***
 
 ## Wireframe
 
-![screen shot of Wireframe](./docs/images/WireFrame.JPG)
+![screen shot of Wireframe](../tripperfect-frontend/src/images/WireFrame.JPG)
 
-![Nav-bar](./docs/images/Navigation.jpg)
+![Nav-bar](../src/../tripperfect-frontend/src/images/Navigation.jpg)
 
-![landing](./docs/images/Landing.jpg)
+![landing](../tripperfect-frontend/src/images/Landing.jpg)
 
-![search](./docs/images/SearchResults.jpg)
+![search](../tripperfect-frontend/src/images/SearchResults.jpg)
 
-![fav](./docs/images/FavoritesPage.jpg)
+![fav](../tripperfect-frontend/src/images/FavoritesPage.jpg)
 
-![about](./docs/images/AboutUs.jpg)
+![about](../tripperfect-frontend/src/images/AboutUs.jpg)
 
-![login](./docs/images/Login.jpg)
+![login](../tripperfect-frontend/src/images/Login.jpg)
+
+***
 
 ## User Stories
-
-[link to Basecamp User Stories Doc](https://3.basecamp.com/5207785/buckets/24316747/documents/4211985242)
-
-_Our team's Basecamp account is not visible to the public. User stories are also displayed below._
 
 Title: User 1 - Marquesa
 User Story sentence: As a User, I want to be able to view an About Us page, so that I can learn more about the company
@@ -77,18 +58,14 @@ User Story sentence: As a user, I want to be able to save or highlight activitie
 Feature Tasks: Create a method of saving events to data base and display data separately.
 Acceptance Tests: Log data into data base and be able to display logged data.
 
-## Software Requirements
-
-Link to [software requirements](./docs/requirements.md) doc
-
 ## Domain Model
 
-![screen shot of Domain Model](./docs/images/301-DomainModel.jpg)
+![screen shot of Domain Model](../tripperfect-frontend/src/images/301-DomainModel.jpg)
 
 ## DB Schema
 
-![screen shot of DB Schema](./docs/images/DB-Schema.JPG)
+![screen shot of DB Schema](../tripperfect-frontend/src/images/DB-Schema.JPG)
 
 ## WRRC
 
-![screen shot of WRRC diagram](./docs/images/Front-BackEnd.jpg)
+![screen shot of WRRC diagram](../tripperfect-frontend/src/images/WRRC.jpg)
