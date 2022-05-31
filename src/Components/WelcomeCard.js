@@ -1,7 +1,7 @@
 import { Card, Row } from "react-bootstrap";
 import tP2 from "../images/TripPerfect2.png";
 
-export default function WelcomeCard() {
+const WelcomeCard = () => {
   return (
     <>
       <Row
@@ -21,3 +21,5 @@ export default function WelcomeCard() {
     </>
   );
 }
+
+export default WelcomeCard;

@@ -10,12 +10,12 @@ export default function EventForm(props) {
               Please Enter City Name
             </Form.Label>
             <Form.Control
-              onChange={(e) => props.setSearchQuery(e.target.value)}
+              onChange={(e) => props.handleSearchQuery(e.target.value)}
               placeholder="Ex: Seattle"
             />
           </Col>
           <Col xs="auto" className="my-1">
-            <Button type="submit" as="input" value="Submit" variant="light" />{" "}
+            <Button type="submit" as="input" value="Submit" variant="outline-light" />{" "}
           </Col>
         </Row>
       </Form>

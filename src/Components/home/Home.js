@@ -1,22 +1,20 @@
-import { Component } from "react";
 import { Container } from "react-bootstrap";
 import EventForm from "../EventForm";
 import Event from "../Event";
 import "./Home.css";
 
-class Home extends Component {
-  render() {
+const Home = (props) => {
     return (
       <Container className="text-center">
         <EventForm
-          getEvents={this.props.getEvents}
-          setSearchQuery={this.props.setSearchQuery}
+          getEvents={props.getEvents}
+          handleSearchQuery={props.handleSearchQuery}
         />
         <Event
-          eventData={this.props.eventData}
+          eventData={props.eventData}
         />
       </Container>
     );
   }
-}
+
 export default Home;

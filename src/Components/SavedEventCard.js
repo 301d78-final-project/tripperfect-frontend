@@ -18,7 +18,7 @@ export default function SavedEventCard(props) {
                 <Card.Title>{props.attraction.title}</Card.Title>
                 <Card.Text>Event is in {props.attraction.location}</Card.Text>
                 <Button
-                  variant="danger"
+                  variant="outline-danger"
                   onClick={() => props.deleteEvents(props.attraction._id)}
                 >
                   Delete Event

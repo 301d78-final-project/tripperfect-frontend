@@ -31,7 +31,7 @@ const EventCard = (props) => {
                 </a>
               </Card.Text>
               <Card.Text>
-                <strong>Min Price:</strong> ${attraction.priceRanges.Titlemin} |{" "}
+                <strong>Min Price:</strong> ${attraction.priceRanges.min} |{" "}
                 <strong>Max Price:</strong> ${attraction.priceRanges.max}
               </Card.Text>
               <Card.Text>
@@ -48,7 +48,6 @@ const EventCard = (props) => {
                 displayModal={props.displayModal}
                 onHide={props.hideModal}
               />
-
               {props.auth0.isAuthenticated ? (
                 <Button
                   id="eventbutton"

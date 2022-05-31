@@ -1,10 +1,8 @@
-import { Component } from "react";
 import { Container, Row } from 'react-bootstrap'
-import bios from "../teamBios.json";
 import AuthorCard from "./AuthorCard";
+import bios from '../teamBios.json';
 
-class AboutUs extends Component {
-  render() {
+const AboutUs = () => {
     return (
       <>
         <h1>Meet the Team!</h1>
@@ -32,6 +30,5 @@ class AboutUs extends Component {
       </>
     );
   }
-}
 
 export default AboutUs;

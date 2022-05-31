@@ -1,9 +1,7 @@
-import { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import LoginButton from './LoginButton';
 
-class Login extends Component {
-  render() {
+const Login = () => {
     return (
       <>
         <Card>
@@ -16,6 +14,5 @@ class Login extends Component {
       </>
     );
   }
-}
 
 export default Login;
