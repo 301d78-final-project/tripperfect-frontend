@@ -1,48 +1,43 @@
-import { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Image, Button, ModalBody } from "react-bootstrap";
+import EventInfoAccordion from "./EventInfoAccordion";
 
-class EventModal extends Component {
-  render() {
-    if (!this.props.selectedEvent) return null;
+const EventModal = (props) => {
+  if (!props.selectedEvent) return null;
 
-    return (
-      <Modal show={this.props.displayModal} onHide={this.props.onHide}>
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>{this.props.selectedEvent.name}</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            <h2>GENERAL INFO</h2>
-            <ul>
-              <li>
-                {this.props.selectedEvent.dates.start.localDate} at{" "}
-                {this.props.selectedEvent.dates.start.localTime} local time
-              </li>
-              <li>EVENT INFO: {this.props.selectedEvent.info}</li>
-              <li>
-                PRICE RANGE: ${this.props.selectedEvent.priceRanges[0].min} - $
-                {this.props.selectedEvent.priceRanges[0].max}
-              </li>
-              <li>PROMOTER: {this.props.selectedEvent.promoter.description}</li>
-              <li>{this.props.selectedEvent.ticketLimit.info}</li>
-            </ul>
-            <img
-              alt=""
-              src={this.props.selectedEvent.seatmap.staticUrl}
-              style={{ height: 300 }}
-            />
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.props.onHide}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal.Dialog>
-      </Modal>
-    );
-  }
-}
+  return (
+    <Modal show={props.displayModal} onHide={props.onHide} backdrop="static">
+      <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>{props.selectedEvent.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {" "}
+          {props.selectedEvent.dates.start.localDate} at{" "}
+          {props.selectedEvent.dates.start.localTime} local time
+        </Modal.Body>
+        <ModalBody>
+          {" "}
+          PRICE RANGE: ${props.selectedEvent.priceRanges[0].min} - $
+          {props.selectedEvent.priceRanges[0].max}
+        </ModalBody>
+        <ModalBody>
+          PROMOTER: {props.selectedEvent.promoter.description}
+        </ModalBody>
+        <ModalBody>{props.selectedEvent.ticketLimit.info}</ModalBody>
+        <Image
+          alt=""
+          src={props.selectedEvent.seatmap.staticUrl}
+          style={{ height: 300 }}
+        />
+        <EventInfoAccordion selectedEvent={props.selectedEvent} />
+        <Modal.Footer>
+          <Button variant="secondary" onClick={props.onHide}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+    </Modal>
+  );
+};
 
 export default EventModal;
