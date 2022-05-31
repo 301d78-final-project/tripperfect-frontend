@@ -1,46 +1,36 @@
-import { Component } from "react";
+import { useState } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import SavedEventCard from "../SavedEventCard";
 import "./SavedEvents.css";
 
-class SavedEvents extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      eventData: [],
-    };
-  }
+function SavedEvents(props) {
+  let [eventData, setEventData] = useState([]);
 
-  getSavedEvents = async () => {
-    const savedEventAPI = `http://localhost:3001/favorites?email=${this.props.auth0.user.email}`;
+  const getSavedEvents = async () => {
+    const savedEventAPI = `http://localhost:3001/favorites?email=${props.auth0.user.email}`;
     const eventResponse = await axios.get(savedEventAPI);
-    this.setState({ eventData: eventResponse.data });
+    setEventData(eventData = eventResponse.data );
   };
 
-  deleteEvents = async (id) => {
+  const deleteEvents = async (id) => {
     const deleteEvent = `http://localhost:3001/favorites/${id}`;
     await axios.delete(deleteEvent);
-    this.getSavedEvents();
+    getSavedEvents();
   };
 
-  componentDidMount = () => {
-    this.getSavedEvents();
-  };
-
-  render() {
     return (
       <>
-        {this.state.eventData.map((attraction, idx) => (
+        {eventData.map((attraction, idx) => (
           <SavedEventCard
-            eventData={this.state.eventData}
+            eventData={eventData}
             attraction={attraction}
             key={idx}
-            deleteEvents={this.deleteEvents}
+            deleteEvents={deleteEvents}
           />
         ))}
       </>
     );
   }
-}
+
 export default withAuth0(SavedEvents);
